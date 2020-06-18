@@ -3,6 +3,7 @@ import Axios from 'axios'
 import {dataGovKey, endpoint} from '../../secrets'
 
 import AllSchools from './allSchools'
+import LineChart from './lineChart'
 
 class SchoolInfo extends React.Component {
   constructor() {
@@ -26,7 +27,6 @@ class SchoolInfo extends React.Component {
       const response = await Axios.get(
         `${endpoint}?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=${dataGovKey}`
       )
-      console.log('Key', dataGovKey)
       const schools = response.data
       console.log('SCHOOLS! >>>>>>>>>>>>>>>>', schools)
       this.setState({
@@ -41,11 +41,17 @@ class SchoolInfo extends React.Component {
 
   render() {
     const schoolList = this.state.schools.results
-    console.log('SCHOOL LIST>>>>', schoolList)
+    // console.log('SCHOOL LIST>>>>', schoolList)
     return (
       <div className="schoolOverview">
-        <h2>Glimpse of your queried school:</h2>
+        <h1>
+          Based on your query, here is a breakdown of the school you've
+          selected:
+        </h1>
+
+        <h2>Overview:</h2>
         <AllSchools schools={schoolList} />
+        <LineChart rawData={schoolList} />
       </div>
     )
   }
