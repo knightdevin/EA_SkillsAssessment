@@ -37,7 +37,6 @@ export default function AllSchools(props) {
             <div key={elem.id}>
               <li>School ID: {elem.id}</li>
               <li>Institution: {elem.school.name}</li>
-              {/* <li>Number of Students: {elem{2018}student.enrollment.grad_12_month}</li> */}
               <li>
                 Website:{' '}
                 <a href="https://www.wisc.edu/">{elem.school.school_url}</a>
@@ -53,10 +52,3 @@ export default function AllSchools(props) {
     </div>
   )
 }
-
-// ;<a
-//   target="_blank"
-//   href="https://meetflo.zendesk.com/hc/en-us/articles/230425728-Privacy-Policies"
-// >
-//   Policies
-// </a>

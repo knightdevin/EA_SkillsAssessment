@@ -3,7 +3,7 @@ import Axios from 'axios'
 import {dataGovKey, endpoint} from '../../secrets'
 
 import AllSchools from './allSchools'
-import LineChart from './lineChart'
+import EnrollmentChart from './EnrollmentChart'
 
 class SchoolInfo extends React.Component {
   constructor() {
@@ -51,7 +51,7 @@ class SchoolInfo extends React.Component {
 
         <h2>Overview:</h2>
         <AllSchools schools={schoolList} />
-        <LineChart rawData={schoolList} />
+        <EnrollmentChart rawData={schoolList} />
       </div>
     )
   }
