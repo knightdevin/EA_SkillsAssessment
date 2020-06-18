@@ -4,6 +4,7 @@ import {dataGovKey, endpoint} from '../../secrets'
 
 import AllSchools from './allSchools'
 import EnrollmentChart from './EnrollmentChart'
+import RaceEthnicityChart from './RaceEthnicityChart'
 
 class SchoolInfo extends React.Component {
   constructor() {
@@ -39,6 +40,20 @@ class SchoolInfo extends React.Component {
     // const apiCall = await fetch(``);
   }
 
+  catchingYears() {
+    let yearsCollection = []
+    if (this.state.schools.results) {
+      this.state.schools.results.forEach(elem => {
+        for (let key in elem) {
+          if (Number(key) >= 1995) {
+            yearsCollection.push({[key]: elem[key]})
+          }
+        }
+      })
+    }
+    return yearsCollection
+  }
+
   render() {
     const schoolList = this.state.schools.results
     // console.log('SCHOOL LIST>>>>', schoolList)
@@ -52,6 +67,7 @@ class SchoolInfo extends React.Component {
         <h2>Overview:</h2>
         <AllSchools schools={schoolList} />
         <EnrollmentChart rawData={schoolList} />
+        <RaceEthnicityChart years={this.catchingYears()} />
       </div>
     )
   }
