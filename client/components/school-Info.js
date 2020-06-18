@@ -5,6 +5,7 @@ import {dataGovKey, endpoint} from '../../secrets'
 import AllSchools from './allSchools'
 import EnrollmentChart from './EnrollmentChart'
 import RaceEthnicityChart from './RaceEthnicityChart'
+import ProgramsChart from './ProgramsChart'
 
 class SchoolInfo extends React.Component {
   constructor() {
@@ -54,9 +55,26 @@ class SchoolInfo extends React.Component {
     return yearsCollection
   }
 
+  schoolPrograms() {
+    let programCollection = {}
+    const programs = []
+    if (this.state.schools.results) {
+      this.state.schools.results.forEach(elem => {
+        programCollection = elem.latest.academics.program_percentage
+      })
+      // eslint-disable-next-line guard-for-in
+      for (let key in programCollection) {
+        programs.push({
+          name: key,
+          value: Number((programCollection[key] * 100).toFixed(2))
+        })
+      }
+    }
+    return programs
+  }
+
   render() {
     const schoolList = this.state.schools.results
-    // console.log('SCHOOL LIST>>>>', schoolList)
     return (
       <div className="schoolOverview">
         <h1>
@@ -68,6 +86,7 @@ class SchoolInfo extends React.Component {
         <AllSchools schools={schoolList} />
         <EnrollmentChart rawData={schoolList} />
         <RaceEthnicityChart years={this.catchingYears()} />
+        <ProgramsChart programsPercentages={this.schoolPrograms()} />
       </div>
     )
   }

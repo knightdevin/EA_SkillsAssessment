@@ -21,8 +21,6 @@ export default function RaceEthnicityChart(props) {
     }
   }
 
-  console.log('ethnicity AFTER loop......', ethnicity)
-  console.log('chartData ---------> ', chartData)
   return (
     <div style={{height: '300px'}}>
       <h2>Ethnicity / Race of student body last year</h2>
