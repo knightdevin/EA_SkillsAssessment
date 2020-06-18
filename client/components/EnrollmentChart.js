@@ -39,11 +39,10 @@ export default function EnrollmentChart(props) {
         }
       }
     })
-    // Note: lastYear contains integer datatype of latest year in our array. Declared with var to overcome scoping issue below.
+    // Note: lastYear contains integer of latest year stored in our array. It's declared with var to overcome scoping issue below.
     var lastYear = Number(
       Object.keys(yearsCollection[yearsCollection.length - 1])
     )
-    // console.log('last year>>>>>', lastYear)
   }
 
   let graphData = []

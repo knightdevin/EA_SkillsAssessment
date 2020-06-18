@@ -5,13 +5,13 @@ export default function ProgramsChart(props) {
     program => program.value !== 0
   )
   console.log(filteredPrograms)
-  let total = 0
-  if (filteredPrograms.length) {
-    filteredPrograms.forEach(program => {
-      total += program.value
-    })
-    console.log('TOTAL AMOUNT OF VALUES____>>>>', total)
-  }
+  // let total = 0
+  // if (filteredPrograms.length) {
+  //   filteredPrograms.forEach(program => {
+  //     total += program.value
+  //   })
+  // console.log('TOTAL AMOUNT OF VALUES____>>>>', total)
+  // }
 
   return (
     <div>

@@ -28,7 +28,8 @@ export default function AllSchools(props) {
     // console.log('>>>', typeof school[name])
     // console.log('name?', school.school.name)
   }
-
+  // const totalStudents = props.schools.latest.student.enrollment
+  // console.log('NUMBER OF STUDENTS>>>>>>>', totalStudents)
   return (
     <div>
       {Array.isArray(props.schools) &&
@@ -45,6 +46,11 @@ export default function AllSchools(props) {
                 Location: {elem.school.city}, {elem.school.state}
               </li>
               <li>Zip: {elem.school.zip}</li>
+              <li>
+                Total Students Enrolled:{' '}
+                {elem.latest.student.enrollment.grad_12_month +
+                  elem.latest.student.enrollment.undergrad_12_month}
+              </li>
               <br />
             </div>
           )
