@@ -29,10 +29,10 @@ EnrollmentChart Component:
 SchoolInfo Component:
 
 * A button to save the page as a pdf - A button to print the page as a pdf on the upper right of the screen under the navbar can be used to save the page as a pdf in the print preview screen.
-* A button to download the data that populated the page - A button to download the data as a PDF is on the upper right corner under the navbar. (Note: next to it is a button to download a PNG of the file instead)
-* A button to print the page - A button to print the page as a pdf is available on the upper right of the screen under the navbar.
+* (NOTE =====>>> WORKING ON THIS NOW) A button to download the data that populated the page - A button to download the page as a PDF is on the upper right corner under the navbar. (Note: next to it is a button to download a PNG of the file instead)
+* (NOTE =====>>> WORKING ON THIS NOW) A button to print the page - A button to print the page as a pdf is available on the upper right of the screen under the navbar.
 
-As outlined in the directions, a API.DATA.GOV key was obtained and incorporated into this project. The key has been secured in a secrets folder and will be made available through an email to company recruiters / hiring managers. If you have any questions, please feel free to contact me at:
+As outlined in the directions, an API.DATA.GOV key was obtained and incorporated into this project. The key has been secured in a secrets folder and will be made available through an email to company recruiters / hiring managers. If you have any questions, please feel free to contact me at:
 
 * Email: knightdevin@hotmail.com
 * LinkedIn: linkedin.com/in/devinknight/
@@ -41,6 +41,6 @@ Installation Instructions:
 
 Please Fork and clone this repo to your local machine
 To install the package json, type this command: npm install
-createdb EdAnalytics_Assessment (or if you don't the createdb utility, simply create a database called EdAnalytics_Assessment via Postico or your preferred means). Please note, a backend was not built out for this assessment. The boilermaker code base used for this assessment may require that database to function.
+Then createdb EdAnalytics_Assessment (or if you don't have the createdb utility, simply create a database called EdAnalytics_Assessment via Postico or your preferred means). Please note, a backend was not built out for this assessment. The boilermaker code base used for this assessment may require that database to function.
 
 This site was created by Devin Knight in June 2020.
