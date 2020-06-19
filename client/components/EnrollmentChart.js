@@ -61,7 +61,7 @@ export default function EnrollmentChart(props) {
 
   return (
     <div>
-      <Header>Total student enrollment over last ten years:</Header>
+      <Header>Student enrollment over last ten years:</Header>
       <Chart style={{paddingBottom: '28px'}}>
         <LineChart
           width={900}

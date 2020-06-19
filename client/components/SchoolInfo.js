@@ -16,7 +16,6 @@ const Header = styled.div`
   align-items: center;
   background-color: #05849e;
   border: 1px solid black;
-  box-shadow: 0px 5px 6px 0px rgb(0, 0, 0);
   color: white;
   display: flex;
   font-size: 20px;
@@ -25,6 +24,7 @@ const Header = styled.div`
   margin-top: 2px;
   width: 100%;
 `
+// box-shadow: 0px 5px 6px 0px rgb(0, 0, 0);
 
 const OverviewButtons = styled.div`
   display: flex;
@@ -110,9 +110,15 @@ class SchoolInfo extends React.Component {
 
   render() {
     const schoolList = this.state.schools.results
+    let schoolName = ''
+    if (schoolList) {
+      schoolList.forEach(schoolObj => {
+        schoolName = schoolObj.school.name
+      })
+    }
     return (
       <div className="schoolOverview" id="schoolData">
-        <Header>University of Wisconsin-Madison At a Glance</Header>
+        <Header>{schoolName} At a Glance</Header>
         <OverviewButtons>
           <button onClick={() => window.print()}>PRINT</button>
           <button onClick={this.saveToPdf}>Download PDF</button>
