@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AllSchools(props) {
+export default function SchoolOverview(props) {
   console.log('PROPS>>>>', props)
 
   const newSchools = []
@@ -15,7 +15,6 @@ export default function AllSchools(props) {
         }
       }
       obj.id = school.id
-      // obj.school = school.school
       newSchools.push(obj)
     })
 
@@ -40,7 +39,12 @@ export default function AllSchools(props) {
               <li>Institution: {elem.school.name}</li>
               <li>
                 Website:{' '}
-                <a href="https://www.wisc.edu/">{elem.school.school_url}</a>
+                <a
+                  href="https://www.wisc.edu/"
+                  style={{color: 'blue', textDecoration: 'underline'}}
+                >
+                  {elem.school.school_url}
+                </a>
               </li>
               <li>
                 Location: {elem.school.city}, {elem.school.state}

@@ -2,7 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import {dataGovKey, endpoint} from '../../secrets'
 
-import AllSchools from './allSchools'
+import SchoolOverview from './SchoolOverview'
 import EnrollmentChart from './EnrollmentChart'
 import RaceEthnicityChart from './RaceEthnicityChart'
 import ProgramsChart from './ProgramsChart'
@@ -83,7 +83,7 @@ class SchoolInfo extends React.Component {
         </h1>
 
         <h2>Overview:</h2>
-        <AllSchools schools={schoolList} />
+        <SchoolOverview schools={schoolList} />
         <EnrollmentChart rawData={schoolList} />
         <RaceEthnicityChart years={this.catchingYears()} />
         <ProgramsChart programsPercentages={this.schoolPrograms()} />
