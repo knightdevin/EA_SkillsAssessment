@@ -13,7 +13,9 @@ const Label = styled.span`
 
 const Overview = styled.div`
   background: white;
-  padding: 20px;
+  padding: 1%;
+  width: 70%;
+  border-radius: 10px;
 `
 
 export default function SchoolOverview(props) {
@@ -35,7 +37,7 @@ export default function SchoolOverview(props) {
   // }
   return (
     <Overview>
-      <Header>Overview:</Header>
+      <Header>Quick Overview:</Header>
       {Array.isArray(props.schools) &&
         props.schools.map(elem => {
           return (

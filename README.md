@@ -16,15 +16,15 @@ SchoolOverview Component:
 
 ProgramsChart Component:
 
-* A donut chart of program percentages out of 100 (only values of not null) - This donut chart from the recharts library showcases percentage breakdowns of programs at the queried school for the latest academic year. (Note: all null values have been filtered out).
+* A donut chart of program percentages out of 100 (only values of not null) - This donut chart from the recharts library showcases percentage breakdowns of programs at the queried school for the latest academic year. (Note: This code automatically pulls from the latest year. All null values have been filtered out).
 
 RaceEthnicityChart Component:
 
-* A donut chart of race/ethnicity (only values of not null) - This is a donut chart from the recharts library that displays the percentage of different Ethnicities / Races that made up the queried school's student body during the latest academic year. (Note: all null values have been filtered out).
+* A donut chart of race/ethnicity (only values of not null) - This is a donut chart from the recharts library that displays the percentage of different Ethnicities / Races that made up the queried school's student body during the latest academic year. (Note: This code automatically pulls from the latest year. All null values have been filtered out).
 
 EnrollmentChart Component:
 
-* Any one graph of your choosing for any other metrics in the API call - A line chart from the recharts library features the last ten years of student enrollment. The graph features graduate students and undergraduate students and displays total number of enrolled students for each displayed year.
+* Any one graph of your choosing for any other metrics in the API call - A line chart from the recharts library features the last ten years of student enrollment. The graph features graduate students and undergraduate students and displays total number of enrolled students for each displayed year. (Note: this code automatically pulls from the last ten years, which avoids bugs caused by hard coding down the line as more years are added to this query string.)
 
 SchoolInfo Component:
 

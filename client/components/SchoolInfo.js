@@ -29,7 +29,15 @@ const Header = styled.div`
 const OverviewButtons = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 16px;
+  padding: 1%;
+`
+
+const InfoContainer = styled.div`
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 class SchoolInfo extends React.Component {
@@ -124,10 +132,12 @@ class SchoolInfo extends React.Component {
           <button onClick={this.saveToPdf}>Download PDF</button>
           <button onClick={this.saveToPng}>Download PNG</button>
         </OverviewButtons>
-        <SchoolOverview schools={schoolList} />
-        <EnrollmentChart rawData={schoolList} />
-        <RaceEthnicityChart years={this.catchingYears()} />
-        <ProgramsChart programsPercentages={this.schoolPrograms()} />
+        <InfoContainer>
+          <SchoolOverview schools={schoolList} />
+          <EnrollmentChart rawData={schoolList} />
+          <RaceEthnicityChart years={this.catchingYears()} />
+          <ProgramsChart programsPercentages={this.schoolPrograms()} />
+        </InfoContainer>
       </div>
     )
   }
