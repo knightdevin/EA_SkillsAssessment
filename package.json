@@ -1,6 +1,7 @@
 {
   "name": "EdAnalytics_Assessment",
   "version": "2.0.0",
+  "proxy": "http://localhost:8080/",
   "description": "Hi Lalanthika, Kayleen and Dylan. This is my skills assessment (Devin Knight) for the Education Analytics Junior Full Stack Web Developer role. Feel free to reach out if you have any questions. I'm available through my email - knightdevin@hotmail.com, or through my LinkedIn at: linkedin.com/in/devinknight/",
   "engines": {
     "node": "~12.11.1"
@@ -41,13 +42,19 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "@react-pdf/renderer": "^2.0.0-beta.6",
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-session": "^1.15.1",
     "fetch": "^1.1.0",
+    "file-saver": "^2.0.2",
     "history": "^4.9.0",
+    "html-pdf": "^2.2.0",
+    "jspdf": "^1.5.3",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
@@ -65,7 +72,8 @@
     "redux-thunk": "^2.3.0",
     "request": "^2.88.2",
     "sequelize": "^5.3.1",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

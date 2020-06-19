@@ -1,11 +1,34 @@
-import React from 'react'
 import Axios from 'axios'
+import jsPDF from 'jspdf'
+import React from 'react'
+import styled from 'styled-components'
+
 import {dataGovKey, endpoint} from '../../secrets'
 
 import SchoolOverview from './SchoolOverview'
 import EnrollmentChart from './EnrollmentChart'
 import RaceEthnicityChart from './RaceEthnicityChart'
 import ProgramsChart from './ProgramsChart'
+
+const Header = styled.div`
+  align-items: center;
+  background-color: #05849e;
+  border: 1px solid black;
+  box-shadow: 0px 5px 6px 0px rgb(0, 0, 0);
+  color: white;
+  display: flex;
+  font-size: 20px;
+  height: 50px;
+  justify-content: center;
+  margin-top: 2px;
+  width: 100%;
+`
+
+const PrintButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+`
 
 class SchoolInfo extends React.Component {
   constructor() {
@@ -73,16 +96,43 @@ class SchoolInfo extends React.Component {
     return programs
   }
 
+  print = () => {
+    $('#downloadPDF').click(function() {
+      domtoimage
+        .toPng(document.getElementById('content2'))
+        .then(function(blob) {
+          var pdf = new jsPDF('l', 'pt', [
+            $('#content2').width(),
+            $('#content2').height()
+          ])
+
+          pdf.addImage(
+            blob,
+            'PNG',
+            0,
+            0,
+            $('#content2').width(),
+            $('#content2').height()
+          )
+          pdf.save('test.pdf')
+
+          that.options.api.optionsChanged()
+        })
+    })
+  }
+
   render() {
     const schoolList = this.state.schools.results
     return (
-      <div className="schoolOverview">
-        <h1>
-          Based on your query, here is a breakdown of the school you've
-          selected:
-        </h1>
-
-        <h2>Overview:</h2>
+      <div className="schoolOverview" id="content2">
+        <Header>University of Wisconsin-Madison At a Glance</Header>
+        <PrintButton>
+          {/* eslint-disable-next-line react/button-has-type */}
+          <button onClick={() => window.print()}>PRINT</button>
+        </PrintButton>
+        <button className="btn btn-info" id="downloadPDF">
+          Download PDF
+        </button>
         <SchoolOverview schools={schoolList} />
         <EnrollmentChart rawData={schoolList} />
         <RaceEthnicityChart years={this.catchingYears()} />

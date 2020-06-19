@@ -1,5 +1,19 @@
 import React from 'react'
-import {PieChart, Pie, Legend, Tooltip} from 'recharts'
+import {Cell, PieChart, Pie, Legend, Tooltip} from 'recharts'
+import styled from 'styled-components'
+
+import {COLORS} from './constants'
+
+const Chart = styled.div`
+  display: flex;
+  flexdirection: row;
+  justify-content: center;
+`
+
+const Header = styled.h2`
+  display: flex;
+  justify-content: center;
+`
 
 export default function RaceEthnicityChart(props) {
   const lastYear = props.years[props.years.length - 1]
@@ -22,21 +36,31 @@ export default function RaceEthnicityChart(props) {
   }
 
   return (
-    <div style={{height: '300px'}}>
-      <h2>Ethnicity / Race of student body last year</h2>
-      <PieChart width={800} height={400}>
-        <Pie
-          isAnimationActive={false}
-          data={chartData}
-          cx={200}
-          cy={200}
-          innerRadius={40}
-          outerRadius={140}
-          fill="#8884d8"
-          label="Student Body Ethnicity Make-up"
-        />
-        <Tooltip />
-      </PieChart>
-    </div>
+    <React.Fragment>
+      <Header>Ethnicity / Race of student body last year</Header>
+      <Chart>
+        <PieChart width={800} height={365} style={{backgroundColor: 'white'}}>
+          <Pie
+            isAnimationActive={false}
+            data={chartData}
+            cx={200}
+            cy={200}
+            innerRadius={40}
+            outerRadius={140}
+            fill="#8884d8"
+            label="Student Body Ethnicity Make-up"
+          >
+            {chartData.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+          <Tooltip />
+          <Legend layout="vertical" align="right" verticalAlign="middle" />
+        </PieChart>
+      </Chart>
+    </React.Fragment>
   )
 }

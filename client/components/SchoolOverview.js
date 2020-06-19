@@ -1,4 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Header = styled.h2`
+  text-decoration: underline;
+`
+
+const Label = styled.span`
+  font-size: 16px;
+  font-weight: bold;
+  padding-right: 5px;
+`
+
+const Overview = styled.div`
+  background: white;
+  padding: 20px;
+`
 
 export default function SchoolOverview(props) {
   console.log('PROPS>>>>', props)
@@ -30,15 +46,22 @@ export default function SchoolOverview(props) {
   // const totalStudents = props.schools.latest.student.enrollment
   // console.log('NUMBER OF STUDENTS>>>>>>>', totalStudents)
   return (
-    <div>
+    <Overview>
+      <Header>Overview:</Header>
       {Array.isArray(props.schools) &&
         props.schools.map(elem => {
           return (
             <div key={elem.id}>
-              <li>School ID: {elem.id}</li>
-              <li>Institution: {elem.school.name}</li>
               <li>
-                Website:{' '}
+                <Label>School ID:</Label>
+                {elem.id}
+              </li>
+              <li>
+                <Label>Institution:</Label>
+                {elem.school.name}
+              </li>
+              <li>
+                <Label>Website:</Label>
                 <a
                   href="https://www.wisc.edu/"
                   style={{color: 'blue', textDecoration: 'underline'}}
@@ -47,18 +70,21 @@ export default function SchoolOverview(props) {
                 </a>
               </li>
               <li>
-                Location: {elem.school.city}, {elem.school.state}
+                <Label>Location:</Label>
+                {elem.school.city}, {elem.school.state}
               </li>
-              <li>Zip: {elem.school.zip}</li>
               <li>
-                Total Students Enrolled:{' '}
+                <Label>Zip:</Label>
+                {elem.school.zip}
+              </li>
+              <li>
+                <Label>Total Students Enrolled:</Label>
                 {elem.latest.student.enrollment.grad_12_month +
                   elem.latest.student.enrollment.undergrad_12_month}
               </li>
-              <br />
             </div>
           )
         })}
-    </div>
+    </Overview>
   )
 }
