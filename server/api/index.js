@@ -1,7 +1,7 @@
 const router = require('express').Router()
 module.exports = router
 
-router.use('/users', require('./users'))
+// router.use('/users', require('./users'))
 
 // schools mounted on api/schools
 router.use('/schools', require('./schools'))
