@@ -19,7 +19,6 @@ export default function ProgramsChart(props) {
   const filteredPrograms = props.programsPercentages.filter(
     program => program.value !== 0
   )
-  console.log(filteredPrograms)
 
   return (
     <React.Fragment>
@@ -28,6 +27,7 @@ export default function ProgramsChart(props) {
         <PieChart width={800} height={506} style={{backgroundColor: 'white'}}>
           <Pie
             data={filteredPrograms}
+            dataKey="value"
             cx={500}
             cy={200}
             innerRadius={40}
@@ -41,22 +41,6 @@ export default function ProgramsChart(props) {
               />
             ))}
           </Pie>
-          {/* <Pie
-            isAnimationActive={false}
-            data={filteredPrograms}
-            cx={200}
-            cy={200}
-            outerRadius={80}
-            fill="blue"
-            label
-          >
-            {filteredPrograms.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie> */}
           <Tooltip />
           <Legend layout="horizontal" align="center" verticalAlign="bottom" />
         </PieChart>

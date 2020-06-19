@@ -17,34 +17,22 @@ const Overview = styled.div`
 `
 
 export default function SchoolOverview(props) {
-  console.log('PROPS>>>>', props)
-
-  const newSchools = []
-  if (props.schools) {
-    props.schools.map(school => {
-      let obj = {}
-      for (let key in school) {
-        if (key === 'school') {
-          obj.name = school[key]
-        } else if (key === 'school.state') {
-          obj.state = school[key]
-        }
-      }
-      obj.id = school.id
-      newSchools.push(obj)
-    })
-
-    console.log('newSchools? :  ', newSchools)
-    // for (let key in school) {
-    //   console.log('>>>>>>>>>>', school[key])
-    //   console.log('KEY???', key)
-    //   console.log('typeof key?', typeof key)
-    // }
-    // console.log('>>>', typeof school[name])
-    // console.log('name?', school.school.name)
-  }
-  // const totalStudents = props.schools.latest.student.enrollment
-  // console.log('NUMBER OF STUDENTS>>>>>>>', totalStudents)
+  // const newSchools = []
+  // if (props.schools) {
+  //   props.schools.map(school => {
+  //     let obj = {}
+  //     for (let key in school) {
+  //       if (key === 'school') {
+  //         obj.name = school[key]
+  //       } else if (key === 'school.state') {
+  //         obj.state = school[key]
+  //       }
+  //     }
+  //     obj.id = school.id
+  //     newSchools.push(obj)
+  //   })
+  //   console.log('newSchools:  ', newSchools)
+  // }
   return (
     <Overview>
       <Header>Overview:</Header>

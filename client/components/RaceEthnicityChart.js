@@ -43,12 +43,13 @@ export default function RaceEthnicityChart(props) {
           <Pie
             isAnimationActive={false}
             data={chartData}
+            dataKey="value"
             cx={200}
             cy={200}
             innerRadius={40}
             outerRadius={140}
             fill="#8884d8"
-            label="Student Body Ethnicity Make-up"
+            label
           >
             {chartData.map((entry, index) => (
               <Cell
