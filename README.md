@@ -29,8 +29,8 @@ EnrollmentChart Component:
 SchoolInfo Component:
 
 * A button to save the page as a pdf - A button to print the page as a pdf on the upper right of the screen under the navbar can be used to save the page as a pdf in the print preview screen.
-* (NOTE =====>>> WORKING ON THIS NOW) A button to download the data that populated the page - A button to download the page as a PDF is on the upper right corner under the navbar. (Note: next to it is a button to download a PNG of the file instead)
-* (NOTE =====>>> WORKING ON THIS NOW) A button to print the page - A button to print the page as a pdf is available on the upper right of the screen under the navbar.
+* A button to download the data that populated the page - A button to download the displayed page as a PDF is on the upper right corner under the navbar. (Note: next to it is a button to download a PNG of the file).
+* A button to print the page - A button to print the page as a pdf is visible on the upper right of the screen under the navbar. I don't have a printer, so am a bit unsure if that has affected the print option within the pop-up menu.
 
 As outlined in the directions, an API.DATA.GOV key was obtained and incorporated into this project. The key has been secured in a secrets folder and will be made available through an email to company recruiters / hiring managers. If you have any questions, please feel free to contact me at:
 
