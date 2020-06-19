@@ -1,4 +1,6 @@
+/* eslint-disable react/button-has-type */
 import Axios from 'axios'
+import domtoimage from 'dom-to-image'
 import jsPDF from 'jspdf'
 import React from 'react'
 import styled from 'styled-components'
@@ -24,7 +26,7 @@ const Header = styled.div`
   width: 100%;
 `
 
-const PrintButton = styled.div`
+const OverviewButtons = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 16px;
@@ -96,43 +98,34 @@ class SchoolInfo extends React.Component {
     return programs
   }
 
-  print = () => {
-    $('#downloadPDF').click(function() {
-      domtoimage
-        .toPng(document.getElementById('content2'))
-        .then(function(blob) {
-          var pdf = new jsPDF('l', 'pt', [
-            $('#content2').width(),
-            $('#content2').height()
-          ])
+  saveToPdf = () => {
+    domtoimage
+      .toPng(document.getElementById('schoolData'))
+      .then(function(blob) {
+        var pdf = new jsPDF('l', 'pt', [window.innerWidth, 2700])
+        pdf.addImage(blob, 'PNG', 0, 0)
+        pdf.save('School-Overview.pdf')
+      })
+  }
 
-          pdf.addImage(
-            blob,
-            'PNG',
-            0,
-            0,
-            $('#content2').width(),
-            $('#content2').height()
-          )
-          pdf.save('test.pdf')
+  saveToPng = () => {
+    var node = document.getElementById('schoolData')
 
-          that.options.api.optionsChanged()
-        })
+    domtoimage.toBlob(node).then(function(blob) {
+      window.saveAs(blob, 'School-Overview.png')
     })
   }
 
   render() {
     const schoolList = this.state.schools.results
     return (
-      <div className="schoolOverview" id="content2">
+      <div className="schoolOverview" id="schoolData">
         <Header>University of Wisconsin-Madison At a Glance</Header>
-        <PrintButton>
-          {/* eslint-disable-next-line react/button-has-type */}
+        <OverviewButtons>
           <button onClick={() => window.print()}>PRINT</button>
-        </PrintButton>
-        <button className="btn btn-info" id="downloadPDF">
-          Download PDF
-        </button>
+          <button onClick={this.saveToPdf}>Download PDF</button>
+          <button onClick={this.saveToPng}>Download PNG</button>
+        </OverviewButtons>
         <SchoolOverview schools={schoolList} />
         <EnrollmentChart rawData={schoolList} />
         <RaceEthnicityChart years={this.catchingYears()} />
