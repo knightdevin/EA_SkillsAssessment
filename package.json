@@ -54,7 +54,7 @@
     "fetch": "^1.1.0",
     "file-saver": "^2.0.2",
     "history": "^4.9.0",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "jspdf": "^1.5.3",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
